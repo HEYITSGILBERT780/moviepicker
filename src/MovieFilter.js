@@ -26,19 +26,7 @@ class MovieFilter extends Component {
             this.setState({
                 [name]: [...this.state.genre, value]
             });
-        } else if(target.type === 'radio' || 
-                  target.name === 'year' ||
-                  target.name === 'runtime') {
-            value = parseInt(value, 10);
-            this.setState({
-                [name]: value
-            });
-        } else if(target.name ==='rating') {
-            value = parseFloat(value);
-            this.setState({
-                [name]: value
-            });
-        }else {
+        } else {
             this.setState({
                 [name]: value
             });
@@ -46,7 +34,7 @@ class MovieFilter extends Component {
     }
 
     handleSubmit() {
-        console.log(this.state.year);
+        this.props.addMovie(this.state);
     }
 
     render() {

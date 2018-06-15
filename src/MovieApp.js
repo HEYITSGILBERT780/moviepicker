@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MovieDisplay from './MovieDisplay';
-import './App.css';
+import './MovieApp.css';
 
-class App extends Component {
+class MovieApp extends Component {
   render() {
     return (
       <div className="App">
@@ -12,4 +12,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MovieApp;
