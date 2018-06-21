@@ -9,11 +9,11 @@ class MovieDisplay extends Component {
         this.state = {
             movies: []
         }
-        this.addMovie = this.addMovie.bind(this);
+        //this.addMovie = this.addMovie.bind(this);
     }
 
-    addMovie(val) {
-        const url = apiCall.createApiUrl(val);
+    async addMovie(val) {
+        let url = await apiCall.createApiUrl(val);
         console.log(url);
     }
 
