@@ -10,7 +10,7 @@ class MovieFilter extends Component {
             genre: [],
             rating: '',
             language: '',
-            movieNum: 1
+            movieNum: "1"
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -34,7 +34,9 @@ class MovieFilter extends Component {
     }
 
     handleSubmit() {
-        this.props.addMovie(this.state);
+        for(let i = 0; i < this.state.movieNum; i++) {
+            this.props.addMovie(this.state);
+        }
     }
 
     render() {
@@ -278,7 +280,7 @@ class MovieFilter extends Component {
                         name="movieNum"
                         type="radio"
                         value="1"
-                        checked={this.state.movieNum === 1}
+                        checked={this.state.movieNum === "1"}
                         onChange={this.handleInputChange}
                     />
                 </label>
@@ -288,7 +290,7 @@ class MovieFilter extends Component {
                         name="movieNum"
                         type="radio"
                         value="2"
-                        checked={this.state.movieNum === 2}
+                        checked={this.state.movieNum === "2"}
                         onChange={this.handleInputChange}
                     />
                 </label>
@@ -298,7 +300,7 @@ class MovieFilter extends Component {
                         name="movieNum"
                         type="radio"
                         value="3"
-                        checked={this.state.movieNum === 3}
+                        checked={this.state.movieNum === "3"}
                         onChange={this.handleInputChange}
                     />
                 </label>

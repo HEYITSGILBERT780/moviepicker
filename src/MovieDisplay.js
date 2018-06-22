@@ -13,10 +13,13 @@ class MovieDisplay extends Component {
     }
 
     async addMovie(val) {
+        if(this.state.movies.length > 3) {
+            this.setState({movies: []});
+        }
         let url = await apiCall.createApiUrl(val);
         let newMovie = await apiCall.getMovie(url);
         console.log(newMovie);
-        this.setState({movies: [newMovie]});
+        this.setState({movies: [...this.state.movies, newMovie]});
         console.log(url);
     }
 

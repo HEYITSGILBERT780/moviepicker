@@ -92,7 +92,12 @@ export async function getMovie(url) {
         return res.json();
     })
     .then(data => {
-        let rand = Math.floor(Math.random() * data.total_pages) + 1;
+        let rand;
+        if (data.total_pages > 1000) {
+            rand = Math.floor(Math.random() * 1000) + 1;
+        } else {
+            rand = Math.floor(Math.random() * data.total_pages) + 1;
+        }
         apiUrl += '&page=' + rand.toString();
         return fetch(apiUrl);
     })
