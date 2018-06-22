@@ -39,7 +39,7 @@ class MovieFilter extends Component {
 
     render() {
         return (
-            <form>
+            <div>
                 <h3>Movie Filter</h3>
                 <label>
                     Release Year: 
@@ -304,7 +304,7 @@ class MovieFilter extends Component {
                 </label>
                 <br />
                 <button onClick={this.handleSubmit}>Search</button>
-            </form>
+            </div>
         )
     }
 }

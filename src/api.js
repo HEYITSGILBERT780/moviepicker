@@ -1,5 +1,5 @@
-//let apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=6c1d4c39dedc68c780df0b0ab7e75f83&language=en-US&include_adult=false&include_video=false&page=1';
-let apiUrl = '';
+let apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=6c1d4c39dedc68c780df0b0ab7e75f83&language=en-US&include_adult=false&include_video=false';
+//let apiUrl = '';
 const urlArr = ['&year=', '&with_runtime.gte=', '&with_cast=', '&with_genres=', '&vote_average.gte=', '&with_original_language='];
 
 export async function createApiUrl(val) {
@@ -19,21 +19,32 @@ export async function createApiUrl(val) {
         let id;
         if(p.indexOf(',') !== -1) {
             let personArr = p.split(',');
-            personArr.forEach(async elem => {
+            
+            // personArr.forEach(async (elem) => {
+            //     space = elem.indexOf(' ');
+            //     last = elem.length - 1;
+            //     id = await personSec(elem.substr(0, space), elem.substr(space+1, last));
+            //     if (personArr.indexOf(elem) !== personArr.length - 1) {
+            //         apiUrl += id.toString() + '%2C';
+            //     } else {
+            //         apiUrl += id.toString();
+            //     }
+            // });
+
+            for (let elem of personArr) {
                 space = elem.indexOf(' ');
                 last = elem.length - 1;
-                id = await personSec(elem.substr(0, space), elem.substr(space+1, last))
-
+                id = await personSec(elem.substr(0, space), elem.substr(space+1, last));
                 if (personArr.indexOf(elem) !== personArr.length - 1) {
                     apiUrl += id.toString() + '%2C';
                 } else {
                     apiUrl += id.toString();
                 }
-            });
+            }
         } else {
             space = p.indexOf(' ');
             last = p.length - 1;
-            id = await personSec(p.substr(0, space), p.substr(space+1, last))
+            id = await personSec(p.substr(0, space), p.substr(space+1, last));
             apiUrl += id.toString();
         }
     }
@@ -64,6 +75,51 @@ export async function createApiUrl(val) {
     return apiUrl;
 }
 
+export async function getMovie(url) {
+    return fetch(url)
+    .then(res => {
+        if(!res.ok) {
+            if(res.status >= 400 && res.status < 500) {
+                return res.json().then(data => {
+                    let err = {errorMessage: data.message};
+                    throw err;
+                })
+            } else {
+                let err = {errorMessage: 'Please try again later, server is not responding'};
+                throw err;
+            }
+        }
+        return res.json();
+    })
+    .then(data => {
+        let rand = Math.floor(Math.random() * data.total_pages) + 1;
+        apiUrl += '&page=' + rand.toString();
+        return fetch(apiUrl);
+    })
+    .then(res => {
+        if(!res.ok) {
+            if(res.status >= 400 && res.status < 500) {
+                return res.json().then(data => {
+                    let err = {errorMessage: data.message};
+                    throw err;
+                })
+            } else {
+                let err = {errorMessage: 'Please try again later, server is not responding'};
+                throw err;
+            }
+        }
+        return res.json();
+    })
+    .then(data => {
+        let length = data.results.length;
+        let randMov = Math.floor(Math.random() * length);
+        return data.results[randMov];
+    })
+    .catch(error => {
+        console.log('Request failed', error);
+    })
+}
+
 async function personSec(firstName, lastName) {
     let personUrl = 'https://api.tmdb.org/3/search/person?api_key=6c1d4c39dedc68c780df0b0ab7e75f83&query=';
     personUrl += firstName + '%20' + lastName;
@@ -87,6 +143,6 @@ async function personSec(firstName, lastName) {
         return data.results[0].id;
     })
     .catch(error => {
-        console.log(error);
+        console.log('Request failed', error);
     })
 }
