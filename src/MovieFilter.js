@@ -37,6 +37,16 @@ class MovieFilter extends Component {
         for(let i = 0; i < this.state.movieNum; i++) {
             this.props.addMovie(this.state);
         }
+
+        this.setState({
+            year: '',
+            runtime: '',
+            person: '',
+            genre: [],
+            rating: '',
+            language: '',
+            movieNum: "1"
+        });
     }
 
     render() {
