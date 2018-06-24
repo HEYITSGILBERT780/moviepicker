@@ -39,7 +39,7 @@ class MovieDisplay extends Component {
                     <h1>MoviePicker</h1>
                 </span>
                 <MovieFilter addMovie={this.addMovie}/>
-                <ul>
+                <ul className="flex-container movies">
                     {movies}
                 </ul>
             </div>

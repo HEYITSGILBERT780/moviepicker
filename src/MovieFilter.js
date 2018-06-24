@@ -51,8 +51,8 @@ class MovieFilter extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="filter">
+            <div className="flex-container filter-container">
+                <div className="flex-container filter card">
                     <h3>Movie Filter</h3>
                     <label htmlFor="mYear"><strong>Release Year: </strong></label>
                     <input
@@ -91,8 +91,8 @@ class MovieFilter extends Component {
                     <br />
 
                     <label htmlFor="mGenre"><strong>Genre: </strong></label>
-                    <div id="mGenre">
-                        <span className="sec">
+                    <div id="mGenre" className="flex-container">
+                        <span className="flex-container sec">
                             <label>
                                 <input 
                                         name="genre"
@@ -144,7 +144,7 @@ class MovieFilter extends Component {
                             </label>
                         </span>
 
-                        <span className="sec">
+                        <span className="flex-container sec">
                             <label>
                                 <input 
                                     name="genre"
@@ -196,7 +196,7 @@ class MovieFilter extends Component {
                             </label>
                         </span>
 
-                        <span className="sec">
+                        <span className="flex-container sec">
                             <label>
                                 <input 
                                     name="genre"
@@ -247,7 +247,7 @@ class MovieFilter extends Component {
                             </label>
                         </span>
                     
-                        <span className="sec">
+                        <span className="flex-container sec">
                             <label>
                                 <input 
                                     name="genre"
