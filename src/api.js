@@ -1,5 +1,4 @@
 let apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=6c1d4c39dedc68c780df0b0ab7e75f83&language=en-US&include_adult=false&include_video=false';
-//let apiUrl = '';
 const urlArr = ['&year=', '&with_runtime.gte=', '&with_cast=', '&with_genres=', '&vote_average.gte=', '&with_original_language='];
 
 export async function createApiUrl(val) {
@@ -19,17 +18,6 @@ export async function createApiUrl(val) {
         let id;
         if(p.indexOf(',') !== -1) {
             let personArr = p.split(',');
-            
-            // personArr.forEach(async (elem) => {
-            //     space = elem.indexOf(' ');
-            //     last = elem.length - 1;
-            //     id = await personSec(elem.substr(0, space), elem.substr(space+1, last));
-            //     if (personArr.indexOf(elem) !== personArr.length - 1) {
-            //         apiUrl += id.toString() + '%2C';
-            //     } else {
-            //         apiUrl += id.toString();
-            //     }
-            // });
 
             for (let elem of personArr) {
                 space = elem.indexOf(' ');

@@ -51,271 +51,308 @@ class MovieFilter extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Movie Filter</h3>
-                <label>
-                    Release Year: 
+            <div className="container">
+                <div className="filter">
+                    <h3>Movie Filter</h3>
+                    <label htmlFor="mYear"><strong>Release Year: </strong></label>
                     <input
                         name="year"
+                        id="mYear"
                         type="text"
                         value={this.state.year}
                         placeholder="1996"
                         onChange={this.handleInputChange}
                     />
-                </label>
-                <br />
-                <label>
-                    Runtime: 
+
+                    <br />
+
+                    <label htmlFor="mRun"><strong>Runtime: </strong></label>  
                     <input
                         name="runtime"
+                        id="mRun"
                         type="text"
                         value={this.state.runtime}
                         placeholder="In minutes"
                         onChange={this.handleInputChange}
                     />
-                </label>
-                <br />
-                <label>
-                    Actor/Actress: 
-                    <input 
-                        name="person"
-                        type="text"
-                        value={this.state.person}
-                        placeholder="Seperate w/comma i.e. Brad Pitt, Alison Brie"
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <h4>
-                    Genre(you can pick more than one): 
-                </h4>
-                <label>
-                    Action
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='28'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Adventure
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='12'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Animation
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='16'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Comedy
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='35'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Crime
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='80'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Documentary
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='99'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Drama
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='18'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Family
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='10751'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Fantasy
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='14'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    History
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='36'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Horror
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='27'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Music
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='10402'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Mystery
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='9648'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Romance
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='10749'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Science Fiction
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='878'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    TV Movie
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='10770'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Thriller
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='53'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    War
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='10752'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    Western
-                    <input 
-                        name="genre"
-                        type="checkbox"
-                        value='37'
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <br/>
-                <label>
-                    Rating: 
+
+                    <br />
+
+                    <label htmlFor="mPerson"><strong>Actor/Actress: </strong></label>  
+                        <input 
+                            name="person"
+                            id="mPerson"
+                            type="text"
+                            value={this.state.person}
+                            placeholder="Alison Brie"
+                            onChange={this.handleInputChange}
+                        />
+
+                    <br />
+
+                    <label htmlFor="mGenre"><strong>Genre: </strong></label>
+                    <div id="mGenre">
+                        <span className="sec">
+                            <label>
+                                <input 
+                                        name="genre"
+                                        type="checkbox"
+                                        value='28'
+                                        onChange={this.handleInputChange}
+                                />
+                            Action
+                            </label>
+                            
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='12'
+                                    onChange={this.handleInputChange}
+                                />
+                            Adventure
+                            </label>
+
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='16'
+                                    onChange={this.handleInputChange}
+                                />
+                            Animation
+                            </label>
+
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='35'
+                                    onChange={this.handleInputChange}
+                                />
+                            Comedy
+                            </label>
+
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='80'
+                                    onChange={this.handleInputChange}
+                                />
+                            Crime
+                            </label>
+                        </span>
+
+                        <span className="sec">
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='99'
+                                    onChange={this.handleInputChange}
+                                />
+                            Documentary
+                            </label>
+
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='18'
+                                    onChange={this.handleInputChange}
+                                />
+                            Drama
+                            </label>
+                        
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='10751'
+                                    onChange={this.handleInputChange}
+                                />
+                            Family
+                            </label>
+
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='14'
+                                    onChange={this.handleInputChange}
+                                />
+                            Fantasy
+                            </label>
+                        
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='36'
+                                    onChange={this.handleInputChange}
+                                />
+                            History
+                            </label>
+                        </span>
+
+                        <span className="sec">
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='27'
+                                    onChange={this.handleInputChange}
+                                />
+                            Horror
+                            </label>
+
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='10402'
+                                    onChange={this.handleInputChange}
+                                />
+                            Music</label>
+                        
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='9648'
+                                    onChange={this.handleInputChange}
+                                />
+                            Mystery
+                            </label>
+
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='10749'
+                                    onChange={this.handleInputChange}
+                                />
+                            Romance
+                            </label>
+                        
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='878'
+                                    onChange={this.handleInputChange}
+                                />
+                            Science Fiction
+                            </label>
+                        </span>
+                    
+                        <span className="sec">
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='10770'
+                                    onChange={this.handleInputChange}
+                                />
+                            TV Movie
+                            </label>
+                        
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='53'
+                                    onChange={this.handleInputChange}
+                                />
+                            Thriller
+                            </label>
+                        
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='10752'
+                                    onChange={this.handleInputChange}
+                                />
+                            War
+                            </label>
+                        
+                            <label>
+                                <input 
+                                    name="genre"
+                                    type="checkbox"
+                                    value='37'
+                                    onChange={this.handleInputChange}
+                                />
+                            Western
+                            </label>
+                        </span>
+                    </div>
+
+                    <br/>
+
+                    <label htmlFor="mRating"><strong>Rating: </strong></label>
                     <input 
                         name="rating"
+                        id="mRating"
                         type="text"
                         value={this.state.rating}
                         placeholder="8.2"
                         onChange={this.handleInputChange}
                     />
-                </label>
-                <br />
-                <label>
-                    Language:
+
+                    <br />
+
+                    <label htmlFor="mLang"><strong>Language: </strong></label>
                     <input
                         name="language"
+                        id="mLang"
                         type="text"
                         value={this.state.language}
-                        placeholder="i.e. en for English, fr for French"
+                        placeholder="i.e. en for English"
                         onChange={this.handleInputChange}
                     />
-                </label>
-                <h4>
-                    Number of Movies to Display:
-                </h4>
-                <label>
-                    1
-                    <input
-                        name="movieNum"
-                        type="radio"
-                        value="1"
-                        checked={this.state.movieNum === "1"}
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    2
-                    <input
-                        name="movieNum"
-                        type="radio"
-                        value="2"
-                        checked={this.state.movieNum === "2"}
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <label>
-                    3
-                    <input
-                        name="movieNum"
-                        type="radio"
-                        value="3"
-                        checked={this.state.movieNum === "3"}
-                        onChange={this.handleInputChange}
-                    />
-                </label>
-                <br />
-                <button onClick={this.handleSubmit}>Search</button>
+
+                    <br />
+
+                    <label htmlFor="numM"><strong>Number of Movies to Display: </strong></label>
+                    <div id="numM">
+                        <label htmlFor="num1">1</label>
+                        <input
+                            name="movieNum"
+                            id="num1"
+                            type="radio"
+                            value="1"
+                            checked={this.state.movieNum === "1"}
+                            onChange={this.handleInputChange}
+                        />
+                    
+                        <label htmlFor="num2">2</label>
+                        <input
+                            name="movieNum"
+                            id="num2"
+                            type="radio"
+                            value="2"
+                            checked={this.state.movieNum === "2"}
+                            onChange={this.handleInputChange}
+                        />
+                    
+                        <label htmlFor="num3">3</label>
+                        <input
+                            name="movieNum"
+                            id="num3"
+                            type="radio"
+                            value="3"
+                            checked={this.state.movieNum === "3"}
+                            onChange={this.handleInputChange}
+                        />                
+                    </div>
+
+                    <br />
+
+                    <button onClick={this.handleSubmit}>Search</button>
+                </div>
             </div>
         )
     }

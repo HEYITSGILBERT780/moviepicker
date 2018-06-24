@@ -35,7 +35,9 @@ class MovieDisplay extends Component {
         ));
         return (
             <div>
-                <h1>MoviePicker</h1>
+                <span className="title">
+                    <h1>MoviePicker</h1>
+                </span>
                 <MovieFilter addMovie={this.addMovie}/>
                 <ul>
                     {movies}

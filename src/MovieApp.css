@@ -26,3 +26,48 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 } */
+
+body {
+  background: #43cea2;
+  background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
+  background: linear-gradient(to right, #185a9d, #43cea2);  
+}
+
+.title {
+  text-align:center;
+  color: #dff9fb;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #dff9fb;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+#mGenre {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+}
+
+.sec {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  text-align: center;
+}
