@@ -33,6 +33,7 @@ body {
   text-align: center;
   width: 50%;
   padding: 0px 20px 10px 20px;
+  margin-bottom: 15px;
 }
 
 #mGenre {
@@ -52,6 +53,7 @@ body {
   flex-wrap: wrap;
   padding: 0px;
   color: #dff9fb;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .individual-movie {
@@ -59,16 +61,44 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  max-width: 330px;
-  padding: 10px 20px;
-  flex-shrink: 2;
+  /* max-width: 330px; */
+  flex-basis: 330px;
+  padding: 10px 20px 15px 20px;
+  margin: 5px 10px 20px 10px;
 }
 
 input {
   text-align: center;
 }
 
-img {
+.img_wrap {
+  position: relative;
   max-width: 320px;
   max-height: 480px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 480px;
+}
+
+.desc {
+  position: absolute;
+  top: -3.3%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: rgba(29, 106, 154, 0.72);
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity .5s ease-in-out, visibility .5s ease-in-out;
+}
+
+.img_wrap:hover .desc {
+  visibility: visible;
+  opacity: 1;
 }
