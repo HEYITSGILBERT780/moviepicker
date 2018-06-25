@@ -57,7 +57,7 @@ export async function createApiUrl(val) {
     }
 
     if(val.language !== '') {
-        apiUrl += urlArr[5] + val.language;
+        apiUrl += urlArr[5] + val.language.toLowerCase();
     }
 
     return apiUrl;
