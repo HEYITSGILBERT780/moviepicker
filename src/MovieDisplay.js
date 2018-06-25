@@ -42,6 +42,8 @@ class MovieDisplay extends Component {
                 <ul className="flex-container movies">
                     {movies}
                 </ul>
+
+                <footer><img src="./tmdb.png" alt="TMDb logo"/> This Product uses the TMDb API but is not endorsed or certified by TMDb.</footer>
             </div>
         )
     }
